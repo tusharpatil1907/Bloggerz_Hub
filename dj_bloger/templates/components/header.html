@@ -1,0 +1,62 @@
+
+{% load static %}
+<header class="text-gray-50 bg-black body-font text-xl" style="position:sticky; top: 0px; top">
+  <div class="container  mx-auto flex flex-wrap p-5 flex-col sm:flex-row items-center">
+
+
+    <a class="flex title-font font-semibold items-center text-gray-900 mb-4 md:mb-0" href="/home">
+
+      <span class="ml-3 text-xl text-gray-50">Bloggerz Hub</span>
+    </a>
+    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+      <a class="mr-5 hover:text-teal-300" href="/">All Posts</a>
+        {%for c in c %}
+
+          <a href="/category/{{ c.url }}" class="mr-5 hover:text-teal-300">{{c.title}}</a>
+        {%endfor%}
+      <a href="/about/" class="mr-5 hover:text-teal-300">About us</a>
+        <!--      <a class="mr-5 hover:text-gray-900"></a>-->
+        <!--      <a class="mr-5 hover:text-gray-900">Fourth Link</a>-->
+    </nav>
+      <a class="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-teal-300 rounded text-base mt-4 md:mt-0 "
+         href="/admin/">Admin
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+               class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+      </a>
+  </div>
+</header>
+
+
+<section
+        class="overflow-hidden bg-[url(https://picsum.photos/1680/1440)] bg-cover bg-top bg-no-repeat"
+>
+    <div class="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
+        <div class="m-20 ltr:sm:text-left rtl:sm:text-right">
+            <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">
+        <SPAN CLASS="text-yellow-600">
+            BLOGGERZ
+        </SPAN> HUB
+            </h2>
+
+            <p
+                    class="max-w-lg text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed"
+            >
+                Our mission is to provide valuable and engaging content to our readers, empowering them to Acheve There
+                Desired Skills.
+            </p>
+
+            <div class="mt-4 sm:mt-8">
+                {#                    <a#}
+                {#                            href="#"#}
+                {#                            class="inline-block rounded-full bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"#}
+                {#                    >#}
+                {#                        Get Yours Today#}
+                {#                    </a>#}
+            </div>
+        </div>
+    </div>
+</section>
+
+

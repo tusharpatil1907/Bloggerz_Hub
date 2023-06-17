@@ -1,0 +1,58 @@
+{%extends 'components/base.html'%}
+
+{% block title %}|| Homepage ||{% endblock %}
+
+{% block content %}
+
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-20">
+                {#        {% for p in post %}#}
+                <h2 class="text-4xl my-8 text-center font-bold tracking-tight sm:text-5xl">
+                    {{ ca.title }} Blogs
+                </h2>
+                {#        {% endfor %}#}
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
+            </div>
+            <div class="flex flex-wrap -m-4">
+
+                {% for p in post %}
+
+                    <div class="p-4 lg:w-1/4 md:w-1/2">
+                        <div class="h-full flex flex-col items-center text-center">
+                            <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
+                                 src="/media/{{ p.image }}">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-gray-900">{{ p.title }}</h2>
+            <h3 class="text-gray-500">{{ p.cat.title }}</h3>
+           <a
+                     href="/blog/{{ p.url }}"
+                     class="
+                     inline-block
+                     py-2
+                     px-7
+                     border border-[#E5E7EB]
+                     rounded-full
+                     text-base text-body-color
+                     font-medium
+                     hover:border-primary hover:bg-black hover:text-white
+                     transition
+                     "
+                     >
+                  View Blogs
+                  </a>
+
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% endblock %}

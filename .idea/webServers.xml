@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="347d1777-972c-4d1b-8b78-d7e221e1bc6d" name="github" url="https://github.com/tusharpatil1907/Bloggers-Hub.git">
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
