@@ -1,6 +1,7 @@
+# from tinymce.models import HTMLField
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.html import format_html
-# from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -24,7 +25,7 @@ class Category(models.Model):
 # post models
 
 class Blog(models.Model):
-
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     post_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     ##content = HTMLField()
@@ -33,6 +34,7 @@ class Blog(models.Model):
     cat = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="post/")
     add_date = models.DateTimeField(auto_now_add=True, null=True)
+    update_at = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):

@@ -29,22 +29,46 @@
                     <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ p.cat.title }}</a>
                     <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ p.title }}</a>
                     <p href="#" class="text-sm pb-8">
-                        By <a href="#" class="font-semibold hover:text-gray-800">Tushar</a>, Published on April 25th, 2020
+                        By <a href="#" class="font-semibold hover:text-gray-800">{{ user.username }}</a>, Published
+                        on {{ p.add_date }}
                     </p>
+
                     <div class="text-2xl  pb-3">{{ p.content | safe}}</div>
                      </div>
+                {% if user == p.author %}
+                    <div style="display:flex; ">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button type="submit" value="{{ p.post_id }}" name="del-post-id"
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 p-2 rounded">
+                                Delete
+                            </button>
+                        </form>
+                        <Form method="POST" action=" /update/{{ p.url }}">
+                            {% csrf_token %}
+                            <button type="submit" value="{{ p.url }}" name="up-post-id"
+                                    class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 p-2 px-4 rounded">
+                                Update
+                            </button>
+                        </Form>
+                    </div>
+                {% endif %}
+                {#                <div>#}
+                {#                    <a href="/del/{{ p.url }}" >delete  {{ p.url }}</a>#}
+                {#                </div>#}
+                {{ p.url }}
             </article>
 
-            <div class="w-full flex pt-6">
-                <a href="#" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
-                    <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
-                    <p class="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>
-                </a>
-                <a href="#" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
-                    <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
-                    <p class="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>
-                </a>
-            </div>
+            {#            <div class="w-full flex pt-6">#}
+            {#                <a href="#" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">#}
+            {#                    <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>#}
+            {#                    <p class="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>#}
+            {#                </a>#}
+            {#                <a href="#" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">#}
+            {#                    <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>#}
+            {#                    <p class="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>#}
+            {#                </a>#}
+            {#            </div>#}
 
             <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
                 <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
