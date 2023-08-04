@@ -6,7 +6,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-                path('', home),
+                  path('', home, name='home'),
                   path('home/', home),
                 path("blog/<slug:url>",post, name='posts'),
                   path('update/<slug:url>', edit, name='edit'),
