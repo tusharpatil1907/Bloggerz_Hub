@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django.core.mail',
     # 'django.contrib.auth',
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -141,6 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'anuradha19072002@gmail.com'
+EMAIL_HOST_PASSWORD = 'ypifvscsrkgcklfs'
 
 
 
@@ -175,3 +181,4 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/login'
+
