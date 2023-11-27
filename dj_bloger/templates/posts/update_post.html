@@ -14,28 +14,7 @@
 </head>
 <body class="m-3">
 <h1 class="text-center">Update post</h1>
-{#    <form method="POST"  class="container" enctype="multipart/form-data">#}
-{#        {% csrf_token %}#}
-{#        {{ form | crispy }}#}
-{#         <button type="submit" value="update" class="btn btn-success">post</button>#}
-{#    </form>#}
-{#  <form method="POST" enctype="multipart/form-data" action="/validate/{{ udata.url }}">#}
-{#      {% csrf_token %}#}
-{#      <input type="text" value="{{ udata.title }}" name="title">#}
-{#        <textarea name="content">#}
-{#    {{ udata.content }}#}
-{#        </textarea>#}
-{#      <input type="text" value="{{ udata.url }}" disabled name="url">#}
-{#      <select name="cat">#}
-{#          {% for c in catdata %}#}
-{#          <option>{{ c.title }}</option>#}
-{#          {% endfor %}#}
-{#      </select>#}
-{#  kindly reupload the image#}
-{#    <input type='file' >#}
-{#      <button type="submit"> submit</button>#}
-{##}
-{#  </form>#}
+
 
 <form method="POST" class="container" enctype="multipart/form-data" action="/validate/{{ udata.url }}">
     {% csrf_token %}
