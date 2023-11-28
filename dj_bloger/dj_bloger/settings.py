@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+# settings.py
+
+# from railway.app import DATABASES
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,7 @@ SECRET_KEY = 'django-insecure-_x&pr39n8pd0%=&kq4*cw)*(@fhg)&6p=432w13^ilc1f*c680
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,14 +86,23 @@ WSGI_APPLICATION = 'dj_bloger.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'railway',
+       'USER': 'postgres',
+       'PASSWORD': '2A*1-C35B1ec5a5AbG5dEG34Cg*-Bce-',
+       'HOST': 'viaduct.proxy.rlwy.net',
+       'PORT': '28768',
+   }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -150,7 +162,10 @@ EMAIL_HOST_PASSWORD = 'ypifvscsrkgcklfs'
 
 
 
-
+# STATICFILES_DIRS = [
+#     BASE_DIR/'static',
+#     BASE_DIR/'node_modules',
+# ]
 
 
 MATERIAL_ADMIN_SITE = {
@@ -181,4 +196,5 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/login'
+
 
