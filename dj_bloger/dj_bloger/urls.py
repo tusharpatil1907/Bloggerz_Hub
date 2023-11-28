@@ -7,7 +7,7 @@ from django.urls import path, include
 # from dj_bloger.blog.views import sign_up
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
                   path('', include('blog.urls')),
                   path('', include('django.contrib.auth.urls')),
                   path('tinymce/', include('tinymce.urls')),
