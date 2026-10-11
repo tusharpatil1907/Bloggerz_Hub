@@ -11,19 +11,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 # settings.py
 
 # from railway.app import DATABASES
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_x&pr39n8pd0%=&kq4*cw)*(@fhg)&6p=432w13^ilc1f*c680'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -96,11 +99,11 @@ WSGI_APPLICATION = 'dj_bloger.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'railway',
-       'USER': 'postgres',
-       'PASSWORD': '2A*1-C35B1ec5a5AbG5dEG34Cg*-Bce-',
-       'HOST': 'viaduct.proxy.rlwy.net',
-       'PORT': '28768',
+       'NAME': os.environ['DB_NAME'],
+       'USER': os.environ['DB_USER'],
+       'PASSWORD': os.environ['DB_PASSWORD'],
+       'HOST': os.environ['DB_HOST'],
+       'PORT': os.environ['DB_PORT'],
    }
 }
 # Password validation
@@ -155,10 +158,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'anuradha19072002@gmail.com'
-EMAIL_HOST_PASSWORD = 'ypifvscsrkgcklfs'
+EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_PORT = int(os.environ['EMAIL_PORT'])
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
 
 
@@ -196,5 +199,4 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/login'
-
 
